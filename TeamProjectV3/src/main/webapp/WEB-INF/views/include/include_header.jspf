@@ -1,0 +1,67 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<c:set var="rootPath" value="${pageContext.request.contextPath}" />
+<style>
+@font-face {
+	font-family: 'GmarketSansLight';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'GmarketSansLight';
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+header {
+	position: fixed;
+	width: 100%;
+	background-color: #91c788;
+	display: flex;
+	padding: 10px;
+}
+
+header img {
+	height: 60px;
+}
+
+header ul {
+	margin-left: auto;
+	list-style: none;
+	display: flex;
+	color: white;
+	padding-right: 20px;
+}
+
+header li {
+	padding: 22px 15px 20px 15px;
+	cursor: pointer;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+header li a {
+	color: white;
+}
+</style>
+<header>
+	<a href="${rootPath}/"><img
+		src="${rootPath}/static/images/LOGO.png" /></a>
+	<ul>
+		<li><a href="${rootPath}/notice">공지사항</a></li>
+		<li><a href="${rootPath}/playlist">플레이리스트</a></li>
+		<li><a href="${rootPath}/mypage">마이페이지</a></li>
+		<li><a href="#">로그아웃</a></li>
+	</ul>
+</header>

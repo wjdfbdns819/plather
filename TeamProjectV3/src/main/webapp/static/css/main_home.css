@@ -1,0 +1,106 @@
+@charset "UTF-8";
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'GmarketSansLight';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'GmarketSansLight';
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+h1 {
+	padding: 20px 15px 20px 15px;
+	font-weight: 900;
+	font-size: 25px;
+}
+
+nav#main_nav {
+	position: fixed;
+	background-color: rgba(255, 255, 255, 0.5);
+	display: flex;
+	width: 100%;
+	display: flex;
+}
+
+nav#main_nav div {
+	margin-left: auto;
+}
+
+nav#main_nav ul {
+	list-style: none;
+	display: flex;
+}
+
+nav#main_nav li {
+	padding: 22px 15px 20px 15px;
+	cursor: pointer;
+	font-weight: 900;
+}
+
+section#banners article {
+	background-size: 100% 100%;
+}
+
+article#bn1 {
+	height: 400px;
+}
+
+article#bn2 {
+	height: 80vh;
+	display: flex;
+	justify-content: space-around;
+}
+
+article#bn2 div {
+	text-align: center;
+	margin: 80px 20px;
+}
+
+article#bn2 table {
+	text-align: center;
+	font-weight: bold;
+}
+
+article#bn2 tr#highlight:hover {
+	cursor: pointer;
+	font-weight: 900;
+	background-color: rgba(145, 199, 136, 0.3);
+}
+
+article#bn2 th {
+	background-color: #91c788;
+	width: 150px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-bottom: 1px solid #91c788;
+}
+
+article#bn2 th:nth-child(1) {
+	width: 70%;
+}
+
+article#bn2 td {
+	width: 350px;
+	padding: 10px;
+	vertical-align: top;
+	border-bottom: 1px solid #91c788;
+}
+
+article#bn3 {
+	height: 80vh;
+}

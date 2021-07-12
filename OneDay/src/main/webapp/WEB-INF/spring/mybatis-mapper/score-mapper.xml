@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.callor.score.dao.ScoreDao">
+	
+	<select id="selectViewAll" resultType="ScoreDTO">
+	
+		select 
+			SC.sc_seq,
+			SC.sc_stnum,
+		   	ST.st_name sc_stname,
+		   	ST.st_dept sc_stdept,
+		   	ST.st_grade sc_stgrade,
+			SC.sc_sbcode,
+		    SC.sc_score
+				
+		from tbl_Score SC
+			left join tbl_Student ST
+				ON SC.sc_stnum = ST.st_num
+			group by SC.sc_stnum;
+		
+	</select>	
+	
+	<select id="selectView" resultType="ScoreDTO">
+	
+			select
+				SC.sc_seq,
+				SB.sb_name sc_sbcode, 
+				SC.sc_stnum
+			    
+				 
+				   
+				
+			from tbl_Score SC
+				left join tbl_Student ST
+					ON SC.sc_stnum = ST.st_num
+				left join tbl_subject SB
+					on SC.sc_sbcode = SB.sb_code
+				group by SC.sc_sbcode;
+		
+	</select>
+</mapper>

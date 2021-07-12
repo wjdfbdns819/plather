@@ -1,0 +1,196 @@
+@charset "UTF-8";
+
+@font-face {
+	font-family: 'GmarketSansLight';
+	src:
+		url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansLight.woff')
+		format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+* { 
+	/* 초기화 */
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'GmarketSansLight';
+}
+
+html,body {
+	 width: 100%;
+	 height: 100%;
+	
+}
+
+div#main_box {
+	/*main box 위치 및 크기 조절*/
+
+	   padding: 5px 5px;
+       width: 80%;
+       margin: 0 auto;	
+}
+
+fieldset {
+	margin: 95px 0px;
+	height: 450px;
+	border: 2px solid black;
+	border-radius: 2px; 
+	position: relative;
+}
+ legend {
+ 	border: 3px solid #91c788;
+ 	border-radius: 3px;
+ 	font-size: 35px;
+	font-weight: bold;
+	margin-left: 10px;
+	padding-top: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+div#main_box div.dv_title {
+	
+	margin: 10px 100px;
+	width: 50%;
+	padding: 10px;
+	display: inline-block;
+}
+
+div#main_box label.lb_title {
+	/*공지사항 제목 세부 설정*/
+	font-weight: bold;
+	font-size: 20px;
+	padding: 0px 5px;
+	
+}
+
+div#main_box input.ip_title {
+	/* 공지사항 제목 input box 설정 */
+	text-align: center;
+	border: 2px solid gray;
+	border-radius: 2px;
+	outline: none;
+	padding: 4px 4px;	
+}
+
+div#main_box input.ip_title:hover {
+	/* 공지사항 box에 마우스가 올라갈때*/
+	 background-color: #E1E1E1;
+}
+
+div#main_box input.ip_title:focus {
+	/* 공지사항 box를 클릭할때 */
+	border: 3px solid #53734d;
+	width: 50%;
+}
+
+div#main_box div.dv_date {
+	
+	margin: 10px 100px;
+	width: 50%;
+	display: inline-block;
+}
+
+div#main_box label.lb_date {
+	/*작성일자 제목 세부 설정*/
+	font-weight: bold;
+	font-size: 18px;
+	padding-left: 20px;
+	
+}
+
+div#main_box input.ip_date{
+	/* 작성일자 input box  설정 */
+	text-align:center;
+	border: 2px solid gray;
+	border-radius: 2px;
+	outline: none;
+	margin-left: 8px;
+	padding: 4px 0px;
+}
+
+div#main_box input.ip_date:hover {
+	/* 작성일자 box에 마우스가 올라갈때*/
+	 background-color: #E1E1E1;
+
+}
+
+div#main_box input.ip_date:focus {
+	/* 작성일자 box를 클릭할때 */
+	border: 3px solid #53734d;
+	
+}
+div#main_box div.dv_content {
+
+	margin: 10px 100px;
+	position: relative;
+}
+
+div#main_box label.lb_content {
+	/* 내용 box 위치, 글씨 크기 설정*/
+	margin: 10px 22px;
+	position: absolute;
+	font-weight: bold;
+	font-size: 18px;
+	
+}
+textarea.content {
+	/* text box 설정*/
+        width: 50%;
+        height: 150px;
+       	margin: 35px 40px;
+        resize: none;
+        overflow-y: scroll;
+        border: 2px solid gray;
+        border-radius: 2px;
+      }
+
+textarea.content:hover {
+	 background-color: #E1E1E1;
+}
+
+textarea.content:focus {
+	border: 3px solid #53734d;
+}
+div#main_box div.dv_buttons {
+	display: inline-block;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+}
+
+div#main_box button.btn_save {
+		border: 2px solid black;
+		padding: 5px 10px;
+		font-size: 20px;
+		border-radius: 5px;
+		background-color: white;
+}
+
+div#main_box button.btn_save:hover {
+	background-color: #52734d;
+	box-shadow: 1px 1px 1px black;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+
+div#main_box button.btn_reset {
+		border: 2px solid black;
+		padding: 5px 10px;
+		font-size: 20px;
+		border-radius: 5px;
+		background-color: white;
+}
+
+div#main_box button.btn_reset:hover {
+	background-color: #52734d;
+	box-shadow: 1px 1px 1px black;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+
+

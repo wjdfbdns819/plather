@@ -1,0 +1,62 @@
+@charset "UTF-8";
+@charset "UTF-8";
+.update {
+  padding: 150px;
+}
+.update fieldset {
+  border: 1px solid #53734e;
+  border-radius: 15px;
+}
+
+.update legend {
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #53734e;
+  border-radius: 15px;
+  color: white;
+  font-weight: 900;
+}
+.update div {
+  width: 80%;
+  margin: 5px auto;
+}
+.update label {
+  display: inline-block;
+  width: 30%;
+  text-align: right;
+  margin: 4px 5px;
+  padding: 8px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+.update input {
+  width: 50%;
+  margin: 4px 5px;
+  padding: 8px;
+  border-radius: 25px;
+  outline: 0;
+  border-color: #53734e;
+}
+.update input:focus {
+  border-color: #53734e;
+}
+.update input:hover {
+  background-color: #feffdf;
+}
+.update button {
+  padding: 10px 20px;
+  outline: 0;
+  border: 0;
+  background-color: #feffdf;
+  color: #53734e;
+  border-radius: 15px;
+  font-weight: 900;
+  border: 2px solid #53734e;
+}
+.update button:hover {
+  box-shadow: 2px 2px 2px #53734e;
+  cursor: pointer;
+}
+.btn_box {
+  text-align: right;
+}
