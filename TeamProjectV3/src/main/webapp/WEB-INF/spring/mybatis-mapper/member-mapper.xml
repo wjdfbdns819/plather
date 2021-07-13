@@ -33,7 +33,7 @@
   				#{m_name}, #{m_gender}, #{m_level}, #{m_profile}
   		)
   		ON DUPLICATE KEY UPDATE
-  			m_id = #{m_id},	m_pw = #{m_pw},
+  			m_pw = #{m_pw},
   			m_nickname = #{m_nickname},	m_birth = #{m_birth},
   			m_name = #{m_name}, m_gender = #{m_gender},
   			m_level = #{m_level}, m_profile = #{m_profile}

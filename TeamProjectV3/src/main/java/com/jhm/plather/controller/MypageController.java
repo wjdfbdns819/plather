@@ -21,6 +21,17 @@ public class MypageController {
 
 	protected final MemberService mbService; 
 	
+	@RequestMapping(value = "/mypage" , method = RequestMethod.GET)
+	public String mypage(Model model, HttpSession hSession) {
+		// 마이 페이지
+		
+		MemberVO mbVO = (MemberVO) hSession.getAttribute("MEMBER");
+		
+		model.addAttribute("MB_PROFILE",mbVO);
+		
+		return "mypage/mypage";
+	}
+	
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public String update(Model model,HttpSession hSession ) {
 		// 마이 페이지 수정 method
@@ -40,6 +51,7 @@ public class MypageController {
 		// 마이 페이지 수정 method
 		
 		
+		log.debug("UPDATE {}",mbVO.toString());
 		mbVO = mbService.update(mbVO);
 		
 		
@@ -47,5 +59,7 @@ public class MypageController {
 		
 		return "main";
 	}
+	
+	
 
 }

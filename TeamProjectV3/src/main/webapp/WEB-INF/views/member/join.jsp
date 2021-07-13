@@ -108,7 +108,7 @@ div.join.error.view {
 		</div>
 		
 		<div>
-			<label>PW 확인</label> <input name="pw_one" id="pw_one" type="password"
+			<label>PW 확인</label> <input name="pw_one" id="pw_one" type="password" value="${m_pw}"
 				placeholder="비밀번호를 확인하세요" />
 		</div>
 		
@@ -143,7 +143,12 @@ div.join.error.view {
 	
 	// input 값을 input_*로 되어있는 변수들에 각각 담음
 	let input_id = document.querySelector("input#m_id")
+	
 	let input_pw = document.querySelector("input#m_pw")
+	
+	// 비밀번호 확인에 사용할 변수
+	let re_pw = document.querySelector("input#pw_one")
+	
 	let input_nick = document.querySelector("input#m_nickname")
 	let input_birth = document.querySelector("input#m_birth")
 	let input_name = document.querySelector("input#m_name")
@@ -195,6 +200,12 @@ div.join.error.view {
 		
 	} // input_id end
 	
+	// 비밀번호 확인
+	if(re_pw) {
+		
+		let user_pw = input_pw.value
+	}
+	
 	// 닉네임을 반드시 입력하도록 설정
 	if(input_nick) {
 		
@@ -226,7 +237,7 @@ div.join.error.view {
 					// 만약 DB에 없는 회원이면
 					msg_error.innerText = " * 사용가능한 닉네임 입니다 *"
 					msg_error.classList.add("view")
-					input_nick.focus()
+					input_birth.focus()
 					return false
 				}
 				
@@ -234,4 +245,7 @@ div.join.error.view {
 		
 		}) // blur end
 	}	// input_nick end
+	
+
+	
 </script>

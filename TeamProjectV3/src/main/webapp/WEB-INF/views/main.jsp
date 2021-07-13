@@ -6,3 +6,4 @@
 	<h1>메인 화면</h1>
 	
 	<a href="${rootPath}/mypage/update"> 마이페이지 수정</a>
+	<a href="${rootPath}/mypage/mypage"> 마이페이지</a>

@@ -142,14 +142,10 @@ public class MemberServiceImplV1 implements MemberService {
 	@Override
 	public MemberVO update(MemberVO mbVO) {
 		// TODO 회원 정보 수정
+		
+		// insertOrUpdate는 데이터가 없을경우 insert 있을경우 Update를 수행함
 		mbDao.insertOrUpdate(mbVO);
 		return mbVO;
 	}
-
-
-	
-
-
-	
 
 }

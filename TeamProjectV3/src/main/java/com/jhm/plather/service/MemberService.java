@@ -21,6 +21,7 @@ public interface MemberService {
 	// 닉네임 값 조회
 	public MemberVO findByNick(String m_nickname);
 
+	// 회원정보 수정
 	public MemberVO update(MemberVO mbVO);
 
 	
