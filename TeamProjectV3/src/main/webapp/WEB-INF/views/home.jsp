@@ -25,13 +25,17 @@
 </style>
 </head>
 <body>
+	
 	<c:choose>
 		<c:when test="${BODY eq 'LOGIN'}">
 			<%@ include file = "/WEB-INF/views/member/login.jsp" %>
 		</c:when>
 		
+			
 		<c:when test="${BODY eq 'MAIN'}">
+			
 			<%@ include file = "/WEB-INF/views/main.jsp" %>
+		
 		</c:when>
 	
 		<c:when test="${BODY eq 'JOIN'}">
@@ -41,6 +45,7 @@
 		<c:otherwise>
 			<%@ include file = "/WEB-INF/views/dummy.jsp" %>
 		</c:otherwise>
+		
 	</c:choose>
 </body>
 </html>

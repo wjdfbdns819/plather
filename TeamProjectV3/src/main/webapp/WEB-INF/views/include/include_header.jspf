@@ -58,10 +58,52 @@ header li a {
 <header>
 	<a href="${rootPath}/"><img
 		src="${rootPath}/static/images/LOGO.png" /></a>
-	<ul>
-		<li><a href="${rootPath}/notice">공지사항</a></li>
-		<li><a href="${rootPath}/playlist">플레이리스트</a></li>
-		<li><a href="${rootPath}/mypage">마이페이지</a></li>
-		<li><a href="#">로그아웃</a></li>
-	</ul>
+	<nav id="main_nav">	
+		<ul>
+			<li id="notic">공지사항</li>
+			<li id="playlist">플레이리스트</li>
+			<li id="mypage">마이페이지</li>
+			<c:if test="${empty MEMBER}">
+				<li id="login">로그인</li>
+			</c:if>
+			<c:if test="${not empty MEMBER}">
+			<li>${MEMBER.m_nickname}님 반갑습니다 :D </li>
+			<li id="logout">로그아웃</li>
+			</c:if>
+			
+		</ul>
+	</nav>	
 </header>
+
+<script>
+	/* 변수 선언 */
+	let main_nav = document.querySelector("nav#main_nav")
+	
+	// main_nav가 있으면
+	if(main_nav) {
+		
+		// main_nav 클릭시 event 발생
+		main_nav.addEventListener("click",(e) =>{
+			
+			let menu = e.target
+			
+			// menu에 li tag에만 event 적용
+			if(menu.tagName === "LI") {
+				
+				if(menu.id === "notic") {
+					
+					
+				} else if(menu.id === "playlist") {
+					
+				} else if(menu.id === "mypage"){
+					location.href = "${rootPath}/mypage/mypage"
+					
+				} else if(menu.id === "logout") {
+					location.href = "${rootPath}/member/login"
+				}
+					
+			}
+			
+		})
+	}
+</script>

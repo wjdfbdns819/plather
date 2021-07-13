@@ -8,7 +8,7 @@
 
 	<input name="m_profile" id="m_profile" value="${MB_PROFILE.m_profile}" type="hidden">
 	<img src="" width="100px">
-	
+	<a href="${rootPath}/mypage/update">마이페이지 수정</a>
 <script>
 	/* 변수 선언 */
 	let input_profile = document.querySelector("input#m_profile")

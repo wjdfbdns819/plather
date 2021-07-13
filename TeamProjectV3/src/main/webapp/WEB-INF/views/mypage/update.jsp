@@ -4,7 +4,8 @@
 <c:set var="rootPath" value="${pageContext.request.contextPath}"/>
 
 <link href="${rootPath}/static/css/update.css" rel="stylesheet" />
-<%@include file="/WEB-INF/views/include/include_header.jspf"%>
+
+<%@ include file = "/WEB-INF/views/include/include_header.jspf" %>
 		<form class="update" method="POST" >
 		<fieldset>
 			<legend>필수 회원정보</legend>
@@ -25,19 +26,16 @@
 				<label>비밀번호 확인</label> <input type="password" />
 			</div>
 						
-				
 				<input name="m_birth" value="${MB_DETAIL.m_birth}" type="hidden" />
 				<input name="m_gender" value="${MB_DETAIL.m_gender}" type="hidden"/>
-				
 				<input name="m_profile" value="${MB_DETAIL.m_profile}" type="hidden"/>
 				
 		</fieldset>
 		<div class="btn_box">
 			<button class="btn_update">🖉수정하기</button>
 		</div>
-		
 	</form>
-<%@include file="/WEB-INF/views/include/include_footer.jspf"%>
+ <%@ include file = "/WEB-INF/views/include/include_footer.jspf" %>
 		
 		
 
