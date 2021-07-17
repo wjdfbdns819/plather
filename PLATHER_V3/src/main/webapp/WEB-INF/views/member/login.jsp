@@ -13,7 +13,7 @@ body {
 }
 </style>
 
-<link href="${rootPath}/static/css/member/member_login.css?ver=2021-07-14-008" rel="stylesheet" />
+<link href="${rootPath}/static/css/login.css?ver=2021-07-14-008" rel="stylesheet" />
 
 <body>
 	<div id="font_box">

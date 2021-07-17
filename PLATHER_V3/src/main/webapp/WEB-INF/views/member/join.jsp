@@ -10,32 +10,184 @@ body {
 	background-repeat: no-repeat;
 	background-size: cover;
 }
+
+form#member_input {
+	
+	border: 1px solid black;
+	width: 60%;
+	margin: 0 auto;
+	backdrop-filter: blur(8px);
+	background-color: rgba(255, 255, 255, 0.5);
+	text-align: center;
+}
+
+form#member_input img {
+	
+	margin-top: 10px;
+	margin-bottom: 10px;
+	width: 10%;
+	height: 10%; 
+}
+
+form#member_input div {
+
+	text-align: left; 
+	padding: 10px;
+
+} 
+
+div.join.error.view{
+	margin:0 auto;
+	margin-bottom: 5px;
+	background-color: rgba(245, 63, 63, 0.8);
+	color: white;
+	text-align: center;
+	border-radius: 5px;	
+	width: 50%;
+	font-weight: bold;
+	
+}
+
+div.join.error.answer{
+	margin:0 auto;
+	margin-bottom: 5px;
+	background-color: rgba(60, 179, 113, 0.8);
+	color: white;
+	text-align: center;
+	border-radius: 5px;	
+	width: 50%;
+	font-weight: bold;
+	
+}
+
+div.join.error.pw {
+	margin:0 auto;
+	margin-bottom: 5px;
+	background-color: rgba(245, 63, 63, 0.8);
+	color: white;
+	text-align: center;
+	border-radius: 5px;	
+	width: 50%;
+	font-weight: bold;
+}
+
+div.join.error.pw_answer {
+	margin:0 auto;
+	margin-bottom: 5px;
+	background-color: rgba(60, 179, 113, 0.8);
+	color: white;
+	text-align: center;
+	border-radius: 5px;	
+	width: 50%;
+	font-weight: bold;
+}
+
+
+div.join.error.re_pw {
+	margin:0 auto;
+	margin-bottom: 5px;
+	background-color: rgba(245, 63, 63, 0.8);
+	color: white;
+	text-align: center;
+	border-radius: 5px;	
+	width: 50%;
+	font-weight: bold;
+}
+
+
+div.join.error.re_pw_answer {
+	margin:0 auto;
+	margin-bottom: 5px;
+	background-color: rgba(60, 179, 113, 0.8);
+	color: white;
+	text-align: center;
+	border-radius: 5px;	
+	width: 50%;
+	font-weight: bold;
+}
+
+
+
+
+ input, label {
+	display: inline-block;
+	
+}
+
+label {
+	margin-left: 30%;
+	margin-right: 10px;
+	width: 8%;
+	
+	font-weight: bold;
+	text-align: right;
+}
+
+input {
+	border-radius: 5px;
+	outline:none;
+	padding: 5px;
+	width: 20%;
+}
+
+input.m_gender {
+	width: 2%;
+}
+
+input:hover {
+	background-color: rgb(211,211,211);
+}
+
+input:focus {
+	width: 25%;
+	transition: 0.8s;
+	outline: none;
+		
+}
+
+p#p_id, p#p_pw {
+	margin-top: 10px;
+	font-size: 12px;
+}
+
+p#p_id {
+	margin-left: 38%;
+}
+
+p#p_pw {
+	margin-left: 30%;
+}
+
+
+
+
+
 </style>
 
-<link href="${rootPath}/static/css/member/member_join.css?ver=2021-07-14-004" rel="stylesheet" />
+<link href="${rootPath}/static/css/join.css?ver=2021-07-15-030" rel="stylesheet" />
 
-<title>Member Join</title>
-</head>
-
-	<div class="join error"></div>
-<body>
-	<form id="member_input" method="POST">
-	
+		
 		<div id="main_title">PLATHER</div>
+		<div id="sub_title">회원가입</div>
+		
+	<form id="member_input" method="POST">
 		
 		<img width="50px" src="${rootPath}/static/images/user_green.png"/>
-		<div class="join error"></div>
+		<div class="join error"></div>	
 		
 		<input name="m_profile" id="m_profile" value="${MB.m_profile}"  type="hidden"/>
 	
-		<div>
+		<div id="id_box">
 			<label>ID</label> <input name="m_id" id="m_id" type="email" 
-				placeholder="아이디(이메일형식)을 입력하세요"/>
+				placeholder="아이디를 입력하세요"/> 
+				
+			<p id="p_id">* 이메일 형식으로 입력해야합니다 *</p>
 		</div>
 		
 		<div>
 			<label>PW</label> <input name="m_pw" id="m_pw" type="password" 
 				placeholder="비밀번호를 입력하세요" />
+			 <p id="p_pw">* 비밀번호는 4 ~ 10개 이내의 숫자 or 글자로 입력해야합니다 *</p>
 		</div>
 		
 		<div>
@@ -57,7 +209,7 @@ body {
 		</div>
 		<div>
 			<label>성별</label>
-			남자(male)<input name="m_gender" class="m_gender" value="남" type="radio" />
+			남자(male)<input name="m_gender" class="m_gender" value="남" type="radio">
 			여자(female)<input name="m_gender" class="m_gender" value="여" type="radio"/>
 		</div>
 		
@@ -93,6 +245,7 @@ body {
 			let user_id = e.currentTarget.value
 			if(user_id === "") {
 				
+				input_id.style.backgroundColor = "rgba(245, 63, 63, 0.3)";
 				msg_error.innerText = " * ID는 반드시 입력해야 합니다 * "
 				msg_error.classList.add("view")
 				input_id.focus()
@@ -106,8 +259,10 @@ body {
 		 		// 만약 DB에 이미 있는 id이면
 		 		if(result === "USE_ID") {
 		 			
+		 			
 		 			msg_error.innerText = " * 중복된 ID 입니다 * "
 					msg_error.classList.add("view")
+					input_id.style.backgroundColor = "rgba(245, 63, 63, 0.3)";
 					input_id.focus()
 					return false
 					
@@ -115,7 +270,8 @@ body {
 		 		} else if(result === "NOT_USE_ID") {
 		 			
 		 				msg_error.innerText = " * 사용가능한 ID 입니다 * "
-						msg_error.classList.add("view")
+						msg_error.classList.add("answer")
+						input_id.style.backgroundColor = "rgba(60, 179, 113, 0.3)";
 						input_pw.focus()
 						return false
 		 		}
@@ -133,18 +289,26 @@ body {
 			let user_pw = e.currentTarget.value
 			
 			if(user_pw === "") {
+				input_pw.style.backgroundColor = "rgba(245, 63, 63, 0.3)";
 				msg_error.innerText = " * 비밀번호는 반드시 입력해야합니다 * "
-				msg_error.classList.add("view")
+				msg_error.classList.add("pw")
 				input_pw.focus()
 				return false
 				
 			} else if(user_pw.length < 4 || user_pw.length > 10) {
+				input_pw.style.backgroundColor = "rgba(245, 63, 63, 0.3)";
 				msg_error.innerText = " * 비밀번호는 4이상 10이하만 가능 합니다 * "
-				msg_error.classList.add("view")
+				msg_error.classList.add("pw")
 				input_pw.focus()
 				return false
 				
-			} 
+			} else {
+				input_pw.style.backgroundColor = "rgba(60, 179, 11, 0.3)";
+				msg_error.innerText = " * 사용가능한 비밀번호입니다 * "
+				msg_error.classList.add("pw_answer")
+				re_pw.focus()
+				return false
+			}
 		})
 	
 	}
@@ -156,13 +320,16 @@ body {
 			let user_re_pw = re_pw.value
 			
 			 if(user_re_pw === user_pw) {
+				re_pw.style.backgroundColor = "rgba(60, 179, 113, 0.3)";
+				input_pw.style.backgroundColor = "rgba(60, 179, 113, 0.3)";
 				msg_error.innerText = " * 비밀번호가 일치합니다 * "
-				msg_error.classList.add("view")
+				msg_error.classList.add("re_pw_answer")
 				return false
 				
 			} else {
+				re_pw.style.backgroundColor = "rgba(245, 63, 63, 0.3)";
 				msg_error.innerText = " * 비밀번호가 불일치합니다 다시 확인해주세요 * "
-				msg_error.classList.add("view")
+				msg_error.classList.add("re_pw")
 				re_pw.focus()
 				return false
 			}

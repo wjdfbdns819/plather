@@ -32,14 +32,11 @@ nav#main_nav {
 	background-color: rgba(255, 255, 255, 0.5);
 	display: flex;
 	width: 100%;
-	display: flex;
-}
 
-nav#main_nav div {
-	margin-left: auto;
 }
 
 nav#main_nav ul {
+	flex:1;
 	list-style: none;
 	display: flex;
 }
@@ -47,8 +44,22 @@ nav#main_nav ul {
 nav#main_nav li {
 	padding: 22px 15px 20px 15px;
 	cursor: pointer;
-	font-weight: 900;
+	font-weight: bold;
 }
+
+nav#main_nav li:nth-of-type(1) {
+	margin-left: 30px;	
+}
+
+
+
+nav#main_nav li:nth-of-type(4) {
+	margin-left: auto;
+	padding-top: -10px; 
+	line-height: 20px;
+	
+}
+	
 
 section#banners article {
 	background-size: 100% 100%;

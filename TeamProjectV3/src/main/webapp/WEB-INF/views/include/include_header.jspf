@@ -55,9 +55,9 @@ header li a {
 	color: white;
 }
 </style>
+
 <header>
-	<a href="${rootPath}/"><img
-		src="${rootPath}/static/images/LOGO.png" /></a>
+	<a href="${rootPath}/"> <img src="${rootPath}/static/images/LOGO.png" /> </a>
 	<nav id="main_nav">	
 		<ul>
 			<li id="notic">공지사항</li>
