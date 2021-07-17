@@ -1,0 +1,34 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<style>
+.search {
+	padding-right: 135px;
+	float: right;
+}
+</style>
+<div class="search">
+	<form>
+		<select name="category">
+			<option value="NICK">작성자</option>
+			<option value="TITLE">제목</option>
+			<option value="CONTENT">내용</option>
+		</select> <input name="text" />
+		<button type="button" class="btn_search">검색</button>
+	</form>
+</div>
+<script>
+	document.querySelector("form").addEventListener("keydown",(e)=>{
+		
+		if (e.keyCode === 13) {
+			e.preventDefault()
+		}
+	})
+	let category = document.querySelector("select[name='category']")
+	let search = document.querySelector("input[name='text']")
+	let btn_search = document.querySelector("button.btn_search")
+	btn_search.addEventListener("click",(e)=>{
+		let cat = category.value
+		let text = search.value
+		location.href = "${rootPath}/notice/search/" + cat + "?text=" + text
+	})
+</script>

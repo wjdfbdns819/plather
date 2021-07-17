@@ -11,15 +11,13 @@ body {
 	background-size: cover;
 }
 
-
-
 </style>
 
-<link href="${rootPath}/static/css/join.css?ver=2021-07-17-002" rel="stylesheet" />
+<link href="${rootPath}/static/css/join.css?ver=2021-07-17-0102" rel="stylesheet" />
 
 		
-		<div id="main_title">PLATHER</div>
-		<div id="sub_title">회원가입</div>
+		
+		<div id="title">회원가입</div>
 		
 	<form id="member_input" method="POST">
 		
@@ -34,20 +32,20 @@ body {
 		</div>
 			<p id="p_id">* 이메일 형식으로 입력해야합니다 *</p>
 		
-		<div>
+		<div id="pw_box">
 			<label>PW</label> <input name="m_pw" id="m_pw" type="password" 
-				placeholder="비밀번호를 입력하세요" />
+				placeholder="비밀번호를 입력하세요" />  <div class="pw error"></div>
 		</div>
-			<p id="p_pw">* 비밀번호는 4 ~ 10개 이내의 숫자 or 글자로 입력해야합니다 *</p>
-			
-		<div>
+			 <p id="p_pw">* 비밀번호는 4 ~ 10개 이내의 숫자 or 글자로 입력해야합니다 *</p>
+			 
+		<div id="re_pw_box">
 			<label>PW 확인</label> <input name="pw_check" id="pw_check" type="password" 
-				placeholder="비밀번호를 재입력하세요" />
+				placeholder="비밀번호를 재입력하세요" /> <div class="re_pw error"></div>
 		</div>
 		
-		<div>
+		<div id="nick_box">
 			<label>닉네임</label> <input name="m_nickname" id="m_nickname"
-				placeholder="닉네임을 입력하세요" />
+				placeholder="닉네임을 입력하세요" /><div class="nick error"></div>
 		</div>
 		<div>
 			<label>생년월일</label> <input name="m_birth" id="m_birth" type="date"
@@ -63,7 +61,7 @@ body {
 			여자(female)<input name="m_gender" class="m_gender" value="여" type="radio"/>
 		</div>
 		
-		<div class="btn_box">
+		<div id="btn_box">
 			<button class="btn_save">저장</button>
 			<button type="reset" class="reset">초기화</button>
 		</div>
@@ -87,7 +85,9 @@ body {
 	// error 메시지를 보여줄 값을 담음
 	let msg_error = document.querySelector("div.join.error")
 	let id_error = document.querySelector("div.id.error")
-	
+	let pw_error = document.querySelector("div.pw.error")
+	let re_pw_error = document.querySelector("div.re_pw.error")
+	let nick_error = document.querySelector("div.nick.error")
 	// ID를 반드시 입력하도록 설정(다른 inputbox를 클릭하여도 안넘어감)
 	if(input_id) {
 		
@@ -96,10 +96,10 @@ body {
 			let user_id = e.currentTarget.value
 			if(user_id === "") {
 				
-				msg_error.innerText = " * ID는 반드시 입력해야 합니다 * "
-				msg_error.style.textAlign = "center"
-				msg_error.classList.add("view")	
 				input_id.style.backgroundColor = "rgba(245, 63, 63, 0.3)";
+				msg_error.innerText = "* ID는 반드시 입력해야 합니다 *"
+				msg_error.style.textAlign = "center"
+				msg_error.classList.add("view")
 				input_id.focus()
 				return false
 			} 
@@ -142,22 +142,23 @@ body {
 			
 			if(user_pw === "") {
 				input_pw.style.backgroundColor = "rgba(245, 63, 63, 0.3)";
+				msg_error.style.textAlign = "center"
 				msg_error.innerText = " * 비밀번호는 반드시 입력해야합니다 * "
-				msg_error.classList.add("pw")
+				msg_error.classList.add("view")
 				input_pw.focus()
 				return false
 				
 			} else if(user_pw.length < 4 || user_pw.length > 10) {
 				input_pw.style.backgroundColor = "rgba(245, 63, 63, 0.3)";
-				msg_error.innerText = " * 비밀번호는 4이상 10이하만 가능 합니다 * "
-				msg_error.classList.add("pw")
+				pw_error.innerText = " * 비밀번호는 4이상 10이하만 가능 합니다 * "
+				pw_error.classList.add("view")
 				input_pw.focus()
 				return false
 				
 			} else {
-				input_pw.style.backgroundColor = "rgba(60, 179, 11, 0.3)";
-				msg_error.innerText = " * 사용가능한 비밀번호입니다 * "
-				msg_error.classList.add("pw_answer")
+				input_pw.style.backgroundColor = "rgba(60, 179, 113, 0.3)";
+				pw_error.innerText = " * 사용가능한 비밀번호입니다 * "
+				pw_error.classList.add("view_answer")
 				re_pw.focus()
 				return false
 			}
@@ -171,19 +172,19 @@ body {
 			let user_pw = input_pw.value
 			let user_re_pw = re_pw.value
 			
-			 if(user_re_pw === user_pw) {
-				re_pw.style.backgroundColor = "rgba(60, 179, 113, 0.3)";
-				input_pw.style.backgroundColor = "rgba(60, 179, 113, 0.3)";
-				msg_error.innerText = " * 비밀번호가 일치합니다 * "
-				msg_error.classList.add("re_pw_answer")
-				return false
-				
+			 if(user_re_pw !== user_pw) {
+					re_pw.style.backgroundColor = "rgba(245, 63, 63, 0.3)";
+					re_pw_error.innerText = " * 비밀번호가 불일치합니다 다시 확인해주세요 * "
+					re_pw_error.classList.add("view")
+					re_pw.focus()
+					return false
+					
 			} else {
-				re_pw.style.backgroundColor = "rgba(245, 63, 63, 0.3)";
-				msg_error.innerText = " * 비밀번호가 불일치합니다 다시 확인해주세요 * "
-				msg_error.classList.add("re_pw")
-				re_pw.focus()
+				re_pw.style.backgroundColor = "rgba(60, 179, 113, 0.3)"
+				re_pw_error.innerText = " * 비밀번호가 일치합니다 * "
+				re_pw_error.classList.add("view_answer")
 				return false
+			
 			}
 			
 		})
@@ -199,8 +200,9 @@ body {
 			
 			// nickname 중복검사
 			if(user_nick ==="") {
-					msg_error.innerText = " * 사용자  닉네임 반드시 입력하세요 *"
-					msg_error.classList.add("nick")
+					msg_error.innerText = " * 사용자 닉네임 반드시 입력하세요 *"
+					msg_error.style.textAlign = "center"
+					msg_error.classList.add("view")
 					input_nick.focus()
 					return false
 			}
@@ -212,15 +214,19 @@ body {
 					
 				if(result === "USE_NICK") {
 					// 만약 DB에 있는 회원이면
-					msg_error.innerText = " * 중복된 닉네임 입니다 *"
-					msg_error.classList.add("nick")
+					input_nick.style.backgroundColor = "rgba(245, 63, 63, 0.3)";
+					nick_error.innerText = " * 중복된 닉네임 입니다 *"
+					nick_error.classList.add("view")
 					input_nick.focus()
 					return false
 					
 				} else if(result === "NOT_USE_NICK" ) {
 					// 만약 DB에 없는 회원이면
-					msg_error.innerText = " * 사용가능한 닉네임 입니다 *"
-					msg_error.classList.add("view")
+					
+					input_nick.style.backgroundColor = "rgba(60, 179, 113, 0.3)"
+					nick_error.innerText = " * 사용가능한 닉네임 입니다 *"
+					nick_error.classList.add("view_answer")
+					return false
 				}
 				
 			}) //then(result) end
